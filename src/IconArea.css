@@ -14,3 +14,7 @@
 	width: 130px;
 	display: inline-block;
 }
+
+.book-image:focus {
+	outline: 2px solid black;
+}

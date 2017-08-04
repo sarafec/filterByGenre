@@ -5,7 +5,7 @@ import books from './books.json';
 function renderBookList() {
 	return this.state.currentlyDisplayed.map((book, index) =>
 			<div className="book-entry" key={index}>
-				<img className="book-image" src={book.path} alt={book.title} />
+				<img className="book-image" src={book.path} alt={book.title} tabIndex="0" />
 			</div>
 	);
 }

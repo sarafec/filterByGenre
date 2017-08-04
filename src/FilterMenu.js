@@ -11,7 +11,7 @@ const uniqGenre = genres.sort().filter(function(value, index, array){
 });
 
 const genreList = uniqGenre.map((genre, index) =>
-	<div className="genre-entry" key={index}>{genre}</div>
+	<div className="genre-entry" tabIndex="0" key={index}>{genre}</div>
 );
 
 
@@ -30,7 +30,7 @@ class FilterMenu extends Component {
 	render() {
 		const genre = this.state.genre;
 		return (
-			<div className="filter-menu" onClick={(e) => this.chooseGenre(e)}>{genreList}</div>
+			<div className="filter-menu" onFocus={(e) => this.chooseGenre(e)}>{genreList}</div>
 		);
 	}
 }
