@@ -1,0 +1,16 @@
+.icon-area {
+  width: 85%;
+  margin-left: 150px;
+}
+
+.book-entry {
+	margin: 5px;
+	float: left;
+
+}
+
+.book-image {
+	height: 200px;
+	width: 130px;
+	display: inline-block;
+}
