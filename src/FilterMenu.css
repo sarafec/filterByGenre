@@ -17,3 +17,8 @@
 .genre-entry:focus {
 	outline-color: #00a0b0;
 }
+
+.target-genre {
+	color: #00a0b0;
+	font-weight: bolder;
+}

@@ -23,14 +23,40 @@ class FilterMenu extends Component {
 		this.chooseGenre = this.chooseGenre.bind(this);
 	}
 
+	//event callback
 	chooseGenre(evt) {
-		this.props.onGenreClick(evt.target.textContent);
+		//if not a valid genre, show all books
+		if(!uniqGenre.includes(evt.target.textContent)){
+			return this.props.onGenreClick('');
+
+		}
+
+		//helper variables to toggle classes
+		let targetParentNode = evt.target.parentNode;
+		let prevChosenGenre = '';
+
+		//remove all target-genre styles from filter menu
+		for(let i = 0; i < targetParentNode.children.length; i++){
+			if(targetParentNode.children[i].classList.contains("target-genre")){
+				prevChosenGenre = targetParentNode.children[i].textContent;
+				targetParentNode.children[i].classList.remove("target-genre");
+			}
+		}
+
+		//if the same genre is selected twice, show all books
+		if(prevChosenGenre === evt.target.textContent){
+			this.props.onGenreClick('');
+		//if it is a new genre, add target genre styles and display books
+		} else {
+			this.props.onGenreClick(evt.target.textContent);
+			evt.target.classList.add("target-genre");
+		}
 	}
 
 	render() {
 		const genre = this.state.genre;
 		return (
-			<div className="filter-menu" onFocus={(e) => this.chooseGenre(e)}>{genreList}</div>
+			<div className="filter-menu" onKeyDown={(e) => this.chooseGenre(e)} onClick={(e) => this.chooseGenre(e)}>{genreList}</div>
 		);
 	}
 }
