@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './IconArea.css';
 import books from './books.json';
 
+// update html book list 
 function renderBookList() {
 	return this.state.currentlyDisplayed.map((book, index) =>
 			<div className="book-entry" key={index}>
@@ -24,6 +25,7 @@ class IconArea extends Component {
 
 	}
 
+	// in response to click event, generate new book list 
 	onGenreClick(genre) {
 		let newBookList = books.filter((bookEntry) =>
 			bookEntry.genre.includes(genre));
@@ -31,6 +33,7 @@ class IconArea extends Component {
 		return this.generateBookList(newBookList);
 	}
 
+	// update state based on click event data
 	generateBookList(bookList){
 
 		if(bookList.length === 0) {
